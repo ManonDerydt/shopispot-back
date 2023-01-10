@@ -3,14 +3,17 @@ const cors = require('cors');
 const bodyParser = require('body-parser')
 const models = require("./models");
 const storeRoutes = require("./modules/store/store.routes");
-
-
+const userRoutes = require("./modules/users/users.routes");
 const app = express();
 
 app.use(cors())
 app.use(bodyParser.json())
 app.get("/", (req, res, next) => res.send("OK"));
 app.use(storeRoutes);
+app.use(userRoutes);
+
+require("./passport/local");
+//require("./passport/jwt");
 
 (async() => {
     try {

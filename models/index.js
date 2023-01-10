@@ -1,4 +1,7 @@
 const dotenv = require("dotenv");
+const StoreModel = require("./store");
+const UserModel = require("./users");
+
 dotenv.config();
 
 const {Sequelize, Op} = require("sequelize");
@@ -24,7 +27,8 @@ const sequelize = new Sequelize(
 );
 
 const models = {
-
+    Store: StoreModel.init(sequelize, Sequelize),
+    User: UserModel.init(sequelize, Sequelize),
 }
 
 Object.values(models)

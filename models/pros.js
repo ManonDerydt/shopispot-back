@@ -1,6 +1,6 @@
-const {Sequelize} = require("sequelize");
+const {Model, Sequelize} = require('sequelize');
 
-class Users extends Sequelize.Model {
+class Pros extends Sequelize.Model {
 
   static init(sequelize, DataTypes) {
     return super.init(
@@ -8,10 +8,14 @@ class Users extends Sequelize.Model {
           firstname: {type: Sequelize.STRING,  allowNull: false},
           lastname: {type: Sequelize.STRING,  allowNull: false},
           email: {type: Sequelize.STRING,  allowNull: false},
-          password: {type: Sequelize.STRING,  allowNull: false}
+          number: {type: Sequelize.STRING,  allowNull: false},
+          store: {type: Sequelize.STRING,  allowNull: false},
+          hour: {type: Sequelize.STRING,  allowNull: false},
+          date: {type: Sequelize.STRING,  allowNull: false}
+
         }, {
-          tableName: "Users",
-          modelName: "Users",
+          tableName: "Pros",
+          modelName: "Pros",
           underscored: true,
           sequelize: sequelize
         }
@@ -23,6 +27,4 @@ class Users extends Sequelize.Model {
 
 }
 
-module.exports = Users;
-
-////////////////////////////////////////////////////
+module.exports = Pros;
